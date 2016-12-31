@@ -1,0 +1,23 @@
+<div class="loader" ng-if="status=='loading'"></div>
+<div class="clearfix"></div>
+<table class="table table-striped" ng-if="foundItems.length">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Short Name</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in foundItems">
+      <td>{{ $index + 1 }}</td>
+      <td>{{ item.short_name }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+      <td><button ng-click="onRemove({index: $index});">Don't want this one!</button></td>
+    </tr>
+  </tbody>
+</table>
+<div ng-if="(status=='done' && !foundItems.length)">Nothing found!</div>
