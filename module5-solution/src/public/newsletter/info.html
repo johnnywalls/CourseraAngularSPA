@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Registration Information</h1>
+
+  <div class="row">
+    <div id="info" ng-if="$ctrl.user" class="col-xs-12 col-sm-6">
+      <div class="well bg-info text-info">
+        <dt>First Name:</dt>
+        <dd>{{ $ctrl.user.firstname }}</dd>
+        <dt>Last Name:</dt>
+        <dd>{{ $ctrl.user.lastname }}</dd>
+        <dt>Email:</dt>
+        <dd>{{ $ctrl.user.email}}</dd>
+        <dt>Phone:</dt>
+        <dd>{{ $ctrl.user.phone }}</dd>
+        <div ng-if="$ctrl.user.favoritemenu">
+          <dt>Favorite Menu:</dt>
+          <dd>
+            <div>
+              {{$ctrl.user.menudetail.short_name}} - {{$ctrl.user.menudetail.name}}
+              <img class="img-responsive" width="250" height="150"
+                   ng-src="{{$ctrl.basePath}}/images/{{$ctrl.user.menudetail.short_name}}.jpg"
+                   alt="{{$ctrl.user.menudetail.name}}">
+
+            </div>
+            <div>{{$ctrl.user.menudetail.description}}</div>
+          </dd>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-info" ng-if="!$ctrl.user">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+</div>
