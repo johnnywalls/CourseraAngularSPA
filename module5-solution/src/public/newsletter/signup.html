@@ -62,7 +62,7 @@
           <label for="favoritemenu">Favorite Dish Number</label>
           <input type="text" name="favoritemenu" id="favoritemenu" class="form-control"
             ng-model="reg.user.favoritemenu">
-            <div class="alert alert-danger" ng-if="reg.invalid_favorite">No such menu number exists.</div>
+            <span class="text-danger" ng-if="reg.invalid_favorite">No such menu number exists.</span>
         </div>
 
       </fieldset>
